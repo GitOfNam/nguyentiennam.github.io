@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nguyen Tien Nam - .NET Fullstack Developer with 4+ years experience in building enterprise solutions, RESTful APIs, and modern web applications.">
+<meta property="og:title" content="Nguyen Tien Nam — .NET Fullstack Developer">
+<meta property="og:description" content="Portfolio of Nguyen Tien Nam, a skilled .NET Fullstack Developer specializing in enterprise solutions and modern web technologies.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+<title>Nguyen Tien Nam — .NET Fullstack Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --card: #16161f;
+    --accent: #00e5ff;
+    --accent2: #7b2fff;
+    --accent3: #ff6b35;
+    --text: #e8e8f0;
+    --muted: #6b6b80;
+    --border: rgba(255,255,255,0.06);
+    --glow: rgba(0,229,255,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    width: 12px; height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+    mix-blend-mode: screen;
+  }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 1.5px solid var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.18s ease, width 0.2s, height 0.2s;
+    opacity: 0.5;
+  }
+
+  /* Grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Noise overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10,10,15,0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 60px 60px;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .hero-blob {
+    position: absolute;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(123,47,255,0.12) 0%, transparent 70%);
+    top: -100px; right: -200px;
+    border-radius: 50%;
+    animation: blobPulse 8s ease-in-out infinite;
+  }
+  .hero-blob2 {
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,229,255,0.08) 0%, transparent 70%);
+    bottom: -100px; left: -100px;
+    border-radius: 50%;
+    animation: blobPulse 10s ease-in-out infinite reverse;
+  }
+  @keyframes blobPulse {
+    0%, 100% { transform: scale(1) translate(0,0); }
+    50% { transform: scale(1.1) translate(20px, -20px); }
+  }
+
+  .hero-content {
+    max-width: 800px;
+    position: relative;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 30px; height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-name {
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+  .hero-name .line2 {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--text);
+  }
+
+  .hero-role {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.1rem;
+    color: var(--accent);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+  .btn-primary {
+    padding: 14px 32px;
+    background: var(--accent);
+    color: #000;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,229,255,0.3);
+  }
+  .btn-secondary {
+    padding: 14px 32px;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-stats {
+    position: absolute;
+    right: 60px;
+    bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    opacity: 0;
+    animation: fadeIn 1s ease 1.2s forwards;
+  }
+  .stat { text-align: right; }
+  .stat-number {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .stat-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* SECTIONS */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 120px 60px;
+  }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 80px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 64px;
+    line-height: 1;
+  }
+
+  /* SKILLS */
+  #skills { background: var(--surface); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2px;
+  }
+  .skill-card {
+    background: var(--card);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--accent);
+    transition: height 0.3s ease;
+  }
+  .skill-card:hover { transform: translateY(-4px); }
+  .skill-card:hover::before { height: 100%; }
+
+  .skill-card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
+  .skill-card-title {
+    font-size: 0.75rem;
+    font-family: 'Space Mono', monospace;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Skill tags as links */
+  .tag {
+    padding: 4px 10px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .tag:hover {
+    background: rgba(0,229,255,0.08);
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,229,255,0.12);
+  }
+
+  /* EXPERIENCE */
+  #experience { background: var(--bg); }
+
+  .exp-timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+  .exp-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+  }
+
+  .exp-item {
+    position: relative;
+    margin-bottom: 72px;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 0.6s ease forwards;
+  }
+  .exp-item:nth-child(1) { animation-delay: 0.1s; }
+  .exp-item:nth-child(2) { animation-delay: 0.3s; }
+
+  .exp-dot {
+    position: absolute;
+    left: -48px; top: 6px;
+    width: 16px; height: 16px;
+    border: 2px solid var(--accent);
+    background: var(--bg);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--glow);
+  }
+
+  .exp-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  .exp-period {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    background: rgba(0,229,255,0.08);
+    padding: 4px 12px;
+    border: 1px solid rgba(0,229,255,0.2);
+  }
+  .exp-type {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .exp-company {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
+  .exp-role {
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+  }
+
+  .exp-clients {
+    margin-bottom: 20px;
+    padding: 16px 20px;
+    background: rgba(123,47,255,0.06);
+    border-left: 3px solid var(--accent2);
+  }
+  .exp-clients-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent2);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .exp-clients p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .exp-resp {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .exp-resp li {
+    display: flex;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .exp-resp li::before {
+    content: '▸';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .exp-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+  }
+  .tech-chip {
+    padding: 4px 12px;
+    background: rgba(0,229,255,0.06);
+    border: 1px solid rgba(0,229,255,0.15);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+
+  /* EDUCATION */
+  #education { background: var(--surface); }
+
+  .edu-card {
+    background: var(--card);
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+    max-width: 700px;
+  }
+  .edu-card::after {
+    content: 'B.Sc';
+    position: absolute;
+    right: 40px; top: 40px;
+    font-size: 6rem;
+    font-weight: 800;
+    color: rgba(255,255,255,0.02);
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+  .edu-period {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+  }
+  .edu-school {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+  .edu-major {
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    margin-bottom: 24px;
+  }
+  .edu-courses {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--bg);
+    text-align: center;
+  }
+  .contact-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .contact-title {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    margin-bottom: 24px;
+    line-height: 0.95;
+  }
+  .contact-title span {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--accent);
+  }
+  .contact-sub {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 48px;
+  }
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--text);
+    text-decoration: none;
+    padding: 16px 32px;
+    border: 1px solid var(--border);
+    width: 100%;
+    max-width: 420px;
+    transition: all 0.2s;
+  }
+  .contact-item:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(0,229,255,0.04);
+    transform: translateX(4px);
+  }
+  .contact-item-icon {
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+  .contact-item-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .contact-item-value {
+    display: block;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .social-link {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .social-link:hover { color: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    position: relative;
+    z-index: 1;
+    padding: 32px 60px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--surface);
+  }
+  footer p {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+  .footer-accent { color: var(--accent); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Skill tag tooltip */
+  .tag-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  .tag-tooltip {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #000;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 10;
+  }
+  .tag-wrapper:hover .tag-tooltip { opacity: 1; }
+
+  /* PROJECTS */
+  #projects { background: var(--bg); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 2px;
+  }
+  .project-card {
+    background: var(--card);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    position: relative;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--accent);
+    transition: height 0.3s ease;
+  }
+  .project-card:hover { transform: translateY(-4px); }
+  .project-card:hover::before { height: 100%; }
+
+  .project-image {
+    height: 200px;
+    background: rgba(0,229,255,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .project-placeholder {
+    font-size: 4rem;
+    opacity: 0.3;
+  }
+
+  .project-content {
+    padding: 32px;
+  }
+  .project-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .project-type {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(0,229,255,0.08);
+    padding: 4px 12px;
+    border: 1px solid rgba(0,229,255,0.2);
+  }
+  .project-year {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  .project-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .project-desc {
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .project-links {
+    display: flex;
+    gap: 12px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    #hero { padding: 100px 24px 60px; }
+    section { padding: 80px 24px; }
+    .hero-stats { position: static; flex-direction: row; margin-top: 48px; gap: 40px; }
+    .stat { text-align: left; }
+    footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">NTN // PORTFOLIO</div>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Open to New Opportunities</div>
+    <h1 class="hero-name">
+      Nguyen<br>
+      Tien <span class="line2">Nam</span>
+    </h1>
+    <div class="hero-role">// .NET Fullstack Developer</div>
+    <p class="hero-desc">
+      Software developer with 4+ years of hands-on experience building production-grade systems with .NET and C#.
+      Specialized in architecting robust backend services, RESTful APIs, and modern frontend interfaces.
+      Known for clean code, a proactive mindset, and consistently delivering on time.
+    </p>
+    <div class="hero-cta">
+      <a href="#experience" class="btn-primary">View Experience</a>
+      <a href="#contact" class="btn-secondary">Get in Touch</a>
+      <a href="#contact" class="btn-secondary">Download Resume</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-number">4+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">7+</div>
+      <div class="stat-label">Major Projects</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">2</div>
+      <div class="stat-label">Companies</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">01 // Skills</div>
+  <h2 class="section-title">Technical<br>Expertise</h2>
+  <div class="skills-grid">
+
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">⚙️</div>
+      <div class="skill-card-title">Languages</div>
+      <div class="skill-tags">
+        <div class="tag-wrapper"><a href="https://dotnet.microsoft.com/en-us/languages/csharp" target="_blank" rel="noopener noreferrer" class="tag">C#</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://cplusplus.com/" target="_blank" rel="noopener noreferrer" class="tag">C / C++</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" class="tag">JavaScript</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://learn.microsoft.com/en-us/dotnet/visual-basic/" target="_blank" rel="noopener noreferrer" class="tag">VB.Net</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://www.microsoft.com/en-us/microsoft-365/sharepoint/collaboration" target="_blank" rel="noopener noreferrer" class="tag">SharePoint</a><span class="tag-tooltip">Contact me →</span></div>
+      </div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">🚀</div>
+      <div class="skill-card-title">Frameworks</div>
+      <div class="skill-tags">
+        <div class="tag-wrapper"><a href="https://dotnet.microsoft.com/" target="_blank" rel="noopener noreferrer" class="tag">.NET Framework</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://dotnet.microsoft.com/" target="_blank" rel="noopener noreferrer" class="tag">.NET Core</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://learn.microsoft.com/en-us/ef/" target="_blank" rel="noopener noreferrer" class="tag">Entity Framework</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://vuejs.org/" target="_blank" rel="noopener noreferrer" class="tag">Vue.js</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://react.dev/" target="_blank" rel="noopener noreferrer" class="tag">React.js</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://jquery.com/" target="_blank" rel="noopener noreferrer" class="tag">jQuery</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping" target="_blank" rel="noopener noreferrer" class="tag">ORM</a><span class="tag-tooltip">Contact me →</span></div>
+      </div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">🗄️</div>
+      <div class="skill-card-title">Database</div>
+      <div class="skill-tags">
+        <div class="tag-wrapper"><a href="https://www.microsoft.com/en-us/sql-server" target="_blank" rel="noopener noreferrer" class="tag">SQL Server</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer" class="tag">MySQL</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer" class="tag">Firebase</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://www.sqlite.org/" target="_blank" rel="noopener noreferrer" class="tag">SQLite</a><span class="tag-tooltip">Contact me →</span></div>
+      </div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">🖥️</div>
+      <div class="skill-card-title">Project Types</div>
+      <div class="skill-tags">
+        <div class="tag-wrapper"><a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" target="_blank" rel="noopener noreferrer" class="tag">Web MVC</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank" rel="noopener noreferrer" class="tag">REST API</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://learn.microsoft.com/en-us/dotnet/desktop/winforms" target="_blank" rel="noopener noreferrer" class="tag">Windows Forms</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://learn.microsoft.com/en-us/dotnet/fundamentals/" target="_blank" rel="noopener noreferrer" class="tag">Console App</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://learn.microsoft.com/en-us/dotnet/desktop/wpf/" target="_blank" rel="noopener noreferrer" class="tag">WPF</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://en.wikipedia.org/wiki/Office_suite" target="_blank" rel="noopener noreferrer" class="tag">Digital Office</a><span class="tag-tooltip">Contact me →</span></div>
+      </div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">🎨</div>
+      <div class="skill-card-title">UI / Frontend</div>
+      <div class="skill-tags">
+        <div class="tag-wrapper"><a href="https://www.telerik.com/kendo-ui" target="_blank" rel="noopener noreferrer" class="tag">Kendo UI</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://www.devexpress.com/" target="_blank" rel="noopener noreferrer" class="tag">DevExpress</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer" class="tag">Bootstrap 4/5</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer" class="tag">HTML5</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://www.w3.org/Style/CSS/" target="_blank" rel="noopener noreferrer" class="tag">CSS3</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://github.com/jquery/jquery-tmpl" target="_blank" rel="noopener noreferrer" class="tag">jQuery Templates</a><span class="tag-tooltip">Contact me →</span></div>
+      </div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">🛠️</div>
+      <div class="skill-card-title">Tools & DevOps</div>
+      <div class="skill-tags">
+        <div class="tag-wrapper"><a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer" class="tag">Git</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://subversion.apache.org/" target="_blank" rel="noopener noreferrer" class="tag">SVN</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://visualstudio.microsoft.com/" target="_blank" rel="noopener noreferrer" class="tag">Visual Studio</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer" class="tag">VS Code</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://www.jetbrains.com/resharper/" target="_blank" rel="noopener noreferrer" class="tag">ReSharper</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://developer.android.com/studio" target="_blank" rel="noopener noreferrer" class="tag">Android Studio</a><span class="tag-tooltip">Contact me →</span></div>
+        <div class="tag-wrapper"><a href="https://www.scrum.org/" target="_blank" rel="noopener noreferrer" class="tag">Agile / Scrum</a><span class="tag-tooltip">Contact me →</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">02 // Projects</div>
+  <h2 class="section-title">Featured<br>Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project-card reveal">
+      <div class="project-image">
+        <div class="project-placeholder">🏦</div>
+      </div>
+      <div class="project-content">
+        <div class="project-meta">
+          <span class="project-type">Enterprise Solution</span>
+          <span class="project-year">2022-2024</span>
+        </div>
+        <h3 class="project-title">BIDV eOffice</h3>
+        <p class="project-desc">
+          Digital office management system for Bank for Investment and Development of Vietnam (BIDV).
+          Implemented end-to-end document workflow, digital signatures, and secure file management.
+        </p>
+        <div class="project-tech">
+          <span class="tech-chip">.NET Framework</span>
+          <span class="tech-chip">SharePoint</span>
+          <span class="tech-chip">Kendo UI</span>
+          <span class="tech-chip">REST API</span>
+        </div>
+        <div class="project-links">
+          <a href="#contact" class="btn-secondary">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-image">
+        <div class="project-placeholder">🏛️</div>
+      </div>
+      <div class="project-content">
+        <div class="project-meta">
+          <span class="project-type">Banking Solution</span>
+          <span class="project-year">2022-2024</span>
+        </div>
+        <h3 class="project-title">MSB eOffice</h3>
+        <p class="project-desc">
+          Electronic office platform for Maritime Bank (MSB) featuring integrated digital signature
+          solutions and comprehensive document management capabilities.
+        </p>
+        <div class="project-tech">
+          <span class="tech-chip">C#</span>
+          <span class="tech-chip">.NET Framework</span>
+          <span class="tech-chip">VNPT-CA</span>
+          <span class="tech-chip">jQuery</span>
+        </div>
+        <div class="project-links">
+          <a href="#contact" class="btn-secondary">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-image">
+        <div class="project-placeholder">⚡</div>
+      </div>
+      <div class="project-content">
+        <div class="project-meta">
+          <span class="project-type">Energy Sector</span>
+          <span class="project-year">2022-2024</span>
+        </div>
+        <h3 class="project-title">EVN Genco3 Portal</h3>
+        <p class="project-desc">
+          Web portal for Electricity of Vietnam Generation Corporation 3, providing document
+          management and workflow automation for energy sector operations.
+        </p>
+        <div class="project-tech">
+          <span class="tech-chip">.NET Framework</span>
+          <span class="tech-chip">SharePoint</span>
+          <span class="tech-chip">Kendo UI</span>
+          <span class="tech-chip">SQL Server</span>
+        </div>
+        <div class="project-links">
+          <a href="#contact" class="btn-secondary">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-image">
+        <div class="project-placeholder">📄</div>
+      </div>
+      <div class="project-content">
+        <div class="project-meta">
+          <span class="project-type">SaaS Product</span>
+          <span class="project-year">2020-2022</span>
+        </div>
+        <h3 class="project-title">Win-Econtract</h3>
+        <p class="project-desc">
+          Electronic invoice and digital contract management system compliant with Decree 78.
+          Built with modern web technologies for enterprise-grade SaaS deployment.
+        </p>
+        <div class="project-tech">
+          <span class="tech-chip">Vue.js</span>
+          <span class="tech-chip">.NET Core</span>
+          <span class="tech-chip">RESTful API</span>
+          <span class="tech-chip">SQL Server</span>
+        </div>
+        <div class="project-links">
+          <a href="#contact" class="btn-secondary">View Details</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">03 // Experience</div>
+  <h2 class="section-title">Work<br>Experience</h2>
+  <div class="exp-timeline">
+
+    <!-- Job 1 -->
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-meta">
+        <span class="exp-period">Apr 2022 — Apr 2024</span>
+        <span class="exp-type">Full-time</span>
+      </div>
+      <div class="exp-company">Vu Thao Software Solution</div>
+      <div class="exp-role">Full-Stack Developer</div>
+      <div class="exp-clients">
+        <div class="exp-clients-label">Clients</div>
+        <p>BIDV eOffice · MSB eOffice (Maritime Bank) · Becamex eOffice · Saigon Newport (SNP) · EVN Genco3 · NPT Portal · FCD Pilot</p>
+      </div>
+      <ul class="exp-resp">
+        <li>Developed end-to-end features across Frontend (jQuery, KendoUI) and Backend (.NET Framework + SharePoint)</li>
+        <li>Designed and implemented web interfaces using Kendo UI, JavaScript, jQuery, and HTML</li>
+        <li>Built and maintained robust backend systems and RESTful APIs serving multiple enterprise clients</li>
+        <li>Integrated digital signature solutions: VNPT-CA (MSB), ViettelCA (BIDV), EVNSigner (NPT Portal)</li>
+        <li>Contributed to project architecture design and established team coding standards</li>
+        <li>Worked in Agile/Scrum methodology within cross-functional teams of 9–30 members</li>
+        <li>Delivered across DMS, DPM, and Digital Office project types</li>
+      </ul>
+      <div class="exp-tech">
+        <span class="tech-chip">C#</span>
+        <span class="tech-chip">.NET Framework</span>
+        <span class="tech-chip">SharePoint</span>
+        <span class="tech-chip">jQuery</span>
+        <span class="tech-chip">Kendo UI</span>
+        <span class="tech-chip">REST API</span>
+        <span class="tech-chip">Agile / Scrum</span>
+      </div>
+    </div>
+
+    <!-- Job 2 -->
+    <div class="exp-item">
+      <div class="exp-dot" style="border-color: var(--accent2); box-shadow: 0 0 20px rgba(123,47,255,0.3);"></div>
+      <div class="exp-meta">
+        <span class="exp-period" style="color: var(--accent2); background: rgba(123,47,255,0.06); border-color: rgba(123,47,255,0.2);">Jul 2020 — Apr 2022</span>
+        <span class="exp-type">Full-time</span>
+      </div>
+      <div class="exp-company">Wintech Solution Co., Ltd</div>
+      <div class="exp-role">Full-Stack Developer</div>
+      <div class="exp-clients" style="border-left-color: var(--accent3);">
+        <div class="exp-clients-label" style="color: var(--accent3);">Products</div>
+        <p>WinERP · Win-Econtract — Electronic invoice and digital contract management systems</p>
+      </div>
+      <ul class="exp-resp">
+        <li>Built Frontend (Vue.js) and Backend (.NET Core Web API) for enterprise-grade SaaS products</li>
+        <li>Designed web interfaces using CSS, HTML, Vue.js, and Bootstrap 4</li>
+        <li>Implemented independent modules following Dependency Injection design patterns</li>
+        <li>Authored RESTful APIs for each product feature with well-structured endpoint design</li>
+        <li>Participated in development of the WinERP WinForms desktop application</li>
+        <li>Designed and managed a SQL Server database handling 1,000+ security tokens</li>
+        <li>Prototyped electronic invoice formats (XLSX, XML, JSON) compliant with Decree 78</li>
+      </ul>
+      <div class="exp-tech">
+        <span class="tech-chip" style="color: var(--accent2); background: rgba(123,47,255,0.06); border-color: rgba(123,47,255,0.2);">Vue.js</span>
+        <span class="tech-chip" style="color: var(--accent2); background: rgba(123,47,255,0.06); border-color: rgba(123,47,255,0.2);">.NET Core</span>
+        <span class="tech-chip" style="color: var(--accent2); background: rgba(123,47,255,0.06); border-color: rgba(123,47,255,0.2);">SQL Server</span>
+        <span class="tech-chip" style="color: var(--accent2); background: rgba(123,47,255,0.06); border-color: rgba(123,47,255,0.2);">Bootstrap 4</span>
+        <span class="tech-chip" style="color: var(--accent2); background: rgba(123,47,255,0.06); border-color: rgba(123,47,255,0.2);">RESTful API</span>
+        <span class="tech-chip" style="color: var(--accent2); background: rgba(123,47,255,0.06); border-color: rgba(123,47,255,0.2);">Dependency Injection</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">04 // Education</div>
+  <h2 class="section-title">Education</h2>
+  <div class="edu-card reveal">
+    <div class="edu-period">Sep 2017 — Jun 2021</div>
+    <div class="edu-school">Ho Chi Minh City University of Natural Resources and Environment</div>
+    <div class="edu-major">// Bachelor of Science in Information Technology</div>
+    <div class="edu-courses">
+      <span class="tag">Data Structures & Algorithms</span>
+      <span class="tag">Operating Systems</span>
+      <span class="tag">Web Programming</span>
+      <span class="tag">Mobile Development</span>
+      <span class="tag">Programming Languages</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="justify-content: center; margin-bottom: 24px;">05 // Contact</div>
+    <h2 class="contact-title">Let's work<br>together <span>.</span></h2>
+    <p class="contact-sub">
+      I'm always open to exciting new opportunities and interesting challenges.
+      Whether you have a project in mind or a role to discuss — don't hesitate to reach out.
+    </p>
+    <div class="contact-links">
+      <a href="tel:0903689856" class="contact-item">
+        <span class="contact-item-icon">📱</span>
+        <span>
+          <span class="contact-item-label">Phone</span>
+          <span class="contact-item-value">0903 689 856</span>
+        </span>
+      </a>
+      <a href="mailto:namnt.dev@gmail.com" class="contact-item">
+        <span class="contact-item-icon">✉️</span>
+        <span>
+          <span class="contact-item-label">Email</span>
+          <span class="contact-item-value">namnt.dev@gmail.com</span>
+        </span>
+      </a>
+      <div class="contact-item" style="cursor: default;">
+        <span class="contact-item-icon">📍</span>
+        <span>
+          <span class="contact-item-label">Location</span>
+          <span class="contact-item-value">Le Duc Tho, Ward 16, Go Vap, Ho Chi Minh City</span>
+        </span>
+      </div>
+    </div>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/nguyen-tien-nam" target="_blank" class="social-link">LinkedIn</a>
+      <a href="https://github.com/namntdev" target="_blank" class="social-link">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span class="footer-accent">Nguyen Tien Nam</span> — .NET Fullstack Developer</p>
+  <p>DOB <span class="footer-accent">16 / 02 / 1999</span></p>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.transform = `translate(${mx - 6}px, ${my - 6}px)`;
+  });
+  function animateRing() {
+    rx += (mx - rx - 18) * 0.12;
+    ry += (my - ry - 18) * 0.12;
+    ring.style.transform = `translate(${rx}px, ${ry}px)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // Cursor scale on hover
+  document.querySelectorAll('a, button, .tag').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform += ' scale(1.8)';
+      ring.style.width = '52px';
+      ring.style.height = '52px';
+      ring.style.opacity = '0.3';
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.style.width = '36px';
+      ring.style.height = '36px';
+      ring.style.opacity = '0.5';
+    });
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Smooth anchor highlight for skill tags
+  document.querySelectorAll('.tag[href="#contact"]').forEach(tag => {
+    tag.addEventListener('click', () => {
+      setTimeout(() => {
+        document.querySelectorAll('.contact-item').forEach((item, i) => {
+          item.style.transition = `all 0.2s ease ${i * 0.08}s`;
+          item.style.borderColor = 'var(--accent)';
+          item.style.background = 'rgba(0,229,255,0.04)';
+          setTimeout(() => {
+            item.style.borderColor = '';
+            item.style.background = '';
+          }, 1200);
+        });
+      }, 500);
+    });
+  });
+</script>
+</body>
+</html>
