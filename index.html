@@ -445,7 +445,7 @@
 
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2px;
   }
   .skill-card {
@@ -742,6 +742,7 @@
     color: var(--muted);
     text-transform: uppercase;
     display: block;
+    text-align: left;
     margin-bottom: 2px;
   }
   .contact-item-value {
@@ -955,10 +956,10 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-toggles">
-      <div class="toggle-group">
+      <!-- <div class="toggle-group">
         <span class="toggle-label" data-lang="lang">ENG</span>
         <div class="toggle-switch" id="languageToggle"></div>
-      </div>
+      </div> -->
       <div class="toggle-group">
         <span class="toggle-label" data-lang="theme">☀️</span>
         <div class="toggle-switch" id="themeToggle"></div>
@@ -1300,15 +1301,15 @@
 
     <!-- Job 2 -->
     <div class="exp-item" id="exp-vuthao">
-      <div class="exp-dot"></div>
+      <div class="exp-dot" style="border-color: var(--accent); box-shadow: 0 0 20px rgba(0,128,184,0.3);"></div>
       <div class="exp-meta">
-        <span class="exp-period">Apr 2022 — Apr 2024</span>
+        <span class="exp-period" style="color: var(--accent); background: rgba(0,128,184,0.08); border-color: rgba(0,128,184,0.2);">Apr 2022 — Apr 2024</span>
         <span class="exp-type">Full-time</span>
       </div>
       <div class="exp-company">Vu Thao Software Solution</div>
       <div class="exp-role">// Full-Stack Developer</div>
-      <div class="exp-clients">
-        <div class="exp-clients-label">Clients</div>
+      <div class="exp-clients" style="border-left-color: var(--accent); background: rgba(0,128,184,0.04);">
+        <div class="exp-clients-label" style="color: var(--accent);">Clients</div>
         <p>BIDV eOffice · MSB eOffice (Maritime Bank) · Becamex eOffice · Saigon Newport (SNP) · EVN Genco3 · NPT Portal · FCD Pilot</p>
       </div>
       <ul class="exp-resp">
@@ -1321,13 +1322,13 @@
         <li>Delivered across DMS, DPM, and Digital Office project types</li>
       </ul>
       <div class="exp-tech">
-        <span class="tech-chip">C#</span>
-        <span class="tech-chip">.NET Framework</span>
-        <span class="tech-chip">SharePoint</span>
-        <span class="tech-chip">jQuery</span>
-        <span class="tech-chip">Kendo UI</span>
-        <span class="tech-chip">REST API</span>
-        <span class="tech-chip">Agile / Scrum</span>
+        <span class="tech-chip" style="color: var(--accent); background: rgba(0,128,184,0.06); border-color: rgba(0,128,184,0.2);">C#</span>
+        <span class="tech-chip" style="color: var(--accent); background: rgba(0,128,184,0.06); border-color: rgba(0,128,184,0.2);">.NET Framework</span>
+        <span class="tech-chip" style="color: var(--accent); background: rgba(0,128,184,0.06); border-color: rgba(0,128,184,0.2);">SharePoint</span>
+        <span class="tech-chip" style="color: var(--accent); background: rgba(0,128,184,0.06); border-color: rgba(0,128,184,0.2);">jQuery</span>
+        <span class="tech-chip" style="color: var(--accent); background: rgba(0,128,184,0.06); border-color: rgba(0,128,184,0.2);">Kendo UI</span>
+        <span class="tech-chip" style="color: var(--accent); background: rgba(0,128,184,0.06); border-color: rgba(0,128,184,0.2);">REST API</span>
+        <span class="tech-chip" style="color: var(--accent); background: rgba(0,128,184,0.06); border-color: rgba(0,128,184,0.2);">Agile / Scrum</span>
       </div>
     </div>
 
@@ -1412,7 +1413,7 @@
         <span class="contact-item-icon">📍</span>
         <span>
           <span class="contact-item-label">Location</span>
-          <span class="contact-item-value">Le Duc Tho, Ward 16, Go Vap, Ho Chi Minh City</span>
+          <span class="contact-item-value">Nguyen Kiem, Hanh Thong Ward, Ho Chi Minh City</span>
         </span>
       </div>
     </div>
